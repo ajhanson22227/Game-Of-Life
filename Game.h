@@ -5,9 +5,10 @@
 class Game{
     private:
         sf::RenderWindow window;
+        sf::Vector2u gridSize;
         void checkEvents();
 
     public:
-        Game(sf::VideoMode videoMode/*, uint32_t windowSettings = sf::Style::Default*/);
+        Game(int cellSize, sf::VideoMode videoMode/*, uint32_t windowSettings = sf::Style::Default*/);
         void run();
 };

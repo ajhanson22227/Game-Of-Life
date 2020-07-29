@@ -1,16 +1,13 @@
 #include "Game.h"
 
-Game::Game(sf::VideoMode videoMode) :  window(videoMode, "Game of Life", sf::Style::Default){
-   
+Game::Game(int cellSize, sf::VideoMode videoMode){
+   window.create(videoMode, "Game of Life", sf::Style::Default);
 }
 
 void Game::run(){
     window.setFramerateLimit(60);
 
      while (window.isOpen()){
-        // check all the window's events that were triggered since the last iteration of the loop
-        
-        
         checkEvents();
         window.clear();
         window.display();
@@ -18,6 +15,7 @@ void Game::run(){
 }
 
 void Game::checkEvents(){
+    //Checks for events and handles them accordingly
     sf::Event event;
     while (window.pollEvent(event)){
         // "close requested" event: we close the window
