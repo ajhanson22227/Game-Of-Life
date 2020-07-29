@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Cell.h"
 
 Game::Game(int cellSize, sf::VideoMode videoMode){
    window.create(videoMode, "Game of Life", sf::Style::Default);
@@ -6,10 +7,12 @@ Game::Game(int cellSize, sf::VideoMode videoMode){
 
 void Game::run(){
     window.setFramerateLimit(60);
+    Cell cell(100);
 
      while (window.isOpen()){
         checkEvents();
         window.clear();
+        cell.draw(window);
         window.display();
     }
 }
