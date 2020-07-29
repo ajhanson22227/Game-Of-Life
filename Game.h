@@ -8,6 +8,11 @@ class Game{
     private:
         sf::RenderWindow window;
         sf::Vector2u gridSize;
+        int gridWidth;
+        int gridHeight;
+        int mCellWidth;
+        int mcellHeight;
+        int gridCellSize;
         void checkEvents();
 
     public:

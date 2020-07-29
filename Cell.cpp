@@ -1,8 +1,9 @@
 #include "Cell.h"  
 
-Cell::Cell(int cellSize){
+Cell::Cell(int cellSize, int positionX, int positionY){
     cellRect.setSize(sf::Vector2f(cellSize, cellSize));
     cellRect.setFillColor(sf::Color::Blue);
+    cellRect.setPosition(sf::Vector2f(positionX, positionY));
 
     isAlive = true;
 }

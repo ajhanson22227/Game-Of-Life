@@ -11,6 +11,6 @@ class Cell{
 	public:
 		void livingStatus();
 		void draw(sf::RenderTarget& target);
-		Cell(int cellSize);
+		Cell(int cellSize, int positionX, int positionY);
 
 };
