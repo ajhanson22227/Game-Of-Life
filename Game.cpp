@@ -11,8 +11,8 @@ void Game::run(){
 
      while (window.isOpen()){
         checkEvents();
-        cell.livingStatus();
         window.clear();
+        cell.livingStatus();
         cell.draw(window);
         window.display();
     }
