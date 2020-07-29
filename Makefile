@@ -8,6 +8,13 @@ main.o: main.cpp
 Game.o: Game.cpp
 	g++ -c "Game.cpp" -o Game.o
 
-test: main.o Game.o
+Cell.o: Cell.cpp
+	g++ -c "Cell.cpp" -o Cell.o
+
+test: main.o Game.o Cell.o
 	@echo "BUILDING..."
-	g++ -o test main.o Game.o $(LIB)
+	g++ -o test main.o Game.o Cell.o $(LIB)
+
+clean:
+	@echo "Wiping out object files..."
+	rm test *.o
