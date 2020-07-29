@@ -6,11 +6,12 @@ Game::Game(int cellSize, sf::VideoMode videoMode){
 }
 
 void Game::run(){
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(10);
     Cell cell(100);
 
      while (window.isOpen()){
         checkEvents();
+        cell.livingStatus();
         window.clear();
         cell.draw(window);
         window.display();

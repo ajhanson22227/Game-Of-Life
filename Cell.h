@@ -9,7 +9,7 @@ class Cell{
 		bool isAlive;
 
 	public:
-		sf::RectangleShape livingStatus();
+		void livingStatus();
 		void draw(sf::RenderTarget& target);
 		Cell(int cellSize);
 
