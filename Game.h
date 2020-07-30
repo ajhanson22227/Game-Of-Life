@@ -2,8 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Cell.h"
 #include <iostream> //std::cout for debugging atm
+#include "Cell.h"
 
 class Game{
     private:
@@ -19,6 +19,5 @@ class Game{
     public:
         Game(int cellSize, sf::VideoMode videoMode/*, uint32_t windowSettings = sf::Style::Default*/);
         void run();
-
-       // void clone(std::vector<std::vector<Cell>> &vectOriginal, std::vector<std::vector<Cell>> &vectCloneFrom);
+        //void clone(std::vector<std::vector<Cell>> &cloneTo, std::vector<std::vector<Cell>> &cloneFrom);
 };

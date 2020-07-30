@@ -9,7 +9,7 @@ Game::Game(int cellSize, sf::VideoMode videoMode){
 }
 
 void Game::run(){
-    window.setFramerateLimit(1);
+    window.setFramerateLimit(30);
     std::vector<std::vector<Cell>> gridVect;
     std::vector<std::vector<Cell>> gridVectCopy;
 
@@ -30,10 +30,24 @@ void Game::run(){
         window.clear();
         for (int x = 0; x < gridVect.size(); x += 1){
             for (int y = 0; y < gridVect[x].size(); y += 1){
-                gridVectCopy[x][y].livingStatus(x, y, gridVectCopy);
-                gridVectCopy[x][y].draw(window);
+                gridVect[x][y].livingStatus(x, y, gridVect, gridVectCopy);
+                gridVect[x][y].draw(window);
             }
         }
+        
+        gridVect.clear();
+        std::vector<Cell> row;
+        for (int i = 0; i < gridVectCopy.size(); i++){
+            for (int j = 0; j < gridVectCopy[i].size(); j++){
+                row.push_back(gridVectCopy[i][j]);
+            }
+            gridVect.push_back(row);
+            row.clear();
+        }
+
+
+
+
         window.display();
     }
 }
@@ -53,11 +67,14 @@ void Game::checkEvents(){
     }
 }
 
-// void Game::clone(std::vector<std::vector<Cell>> &vectOriginal, std::vector<std::vector<Cell>> &vectCloneFrom){
+// void Game::clone(std::vector<std::vector<Cell>> &cloneTo, std::vector<std::vector<Cell>> &cloneFrom){
+//     cloneTo.clear();
 //     std::vector<Cell> row;
-//     for (int i = 0; i < vectCloneFrom.size(); i++){
-//         for (int j = 0; j < vectCloneFrom[i].size(); j++){
-//             vectOriginal[i][j] = vectCloneFrom[i][j];
+//     for (int i = 0; i < cloneFrom.size(); i++){
+//         for (int j = 0; j < cloneFrom[i].size(); j++){
+//             row.push_back(cloneFrom[i][j]);
 //         }
+//         cloneTo.push_back(row);
+//         row.clear();
 //     }
 // }

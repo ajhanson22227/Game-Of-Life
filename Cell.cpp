@@ -4,7 +4,7 @@ Cell::Cell(int cellSize, int positionX, int positionY){
     cellRect.setSize(sf::Vector2f(cellSize, cellSize));
     cellRect.setPosition(sf::Vector2f(positionX, positionY));
 
-    isAlive = (rand() % 2);
+    isAlive = (rand() % 10 == 0);
     this->getColor();
 }
 
@@ -31,24 +31,26 @@ void Cell::resurrect(){
     this->getColor();
 }
 
-void Cell::livingStatus(int x, int y, std::vector<std::vector<Cell>> &vect){
+void Cell::livingStatus(int x, int y, std::vector<std::vector<Cell>> &vectOrig, std::vector<std::vector<Cell>> &vectCopy){
     int liveNeighbors = 0;
     for (int i = x - 1; i <= x + 1; i++){
         if (i < 0) continue;
-        if (i >= vect.size()) break;
+        if (i >= vectOrig.size()) break;
 
         for (int j = y - 1; j <= y + 1; j++){
             if (j < 0) continue;
-            if (j >= vect[i].size()) break;
+            if (j >= vectOrig[i].size()) break;
             if (i == j) continue;
-            if (vect[i][j].isAlive == true) liveNeighbors++;
+            if (vectOrig[i][j].isAlive == true) liveNeighbors++;
+            //std::cout << i << "\t" << j << "\t" << liveNeighbors << "\n";
         }
     }
-    if (this->isAlive == true &&  liveNeighbors > 3 || liveNeighbors < 2){
-        this->kill();
+    if (this->isAlive == true &&  (liveNeighbors > 4 || liveNeighbors < 3)){
+        //this->kill();
+        vectCopy[x][y].kill();
     }
     else if (this->isAlive == false && liveNeighbors == 3){
-        this->resurrect();
+        vectCopy[x][y].resurrect();
     }
 
 }
