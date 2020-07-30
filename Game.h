@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include <iostream> //std::cout for debugging atm
 #include "Cell.h"
 
 class Game{
@@ -14,10 +13,10 @@ class Game{
         int mCellWidth;
         int mcellHeight;
         int gridCellSize;
+        //int gridCellSize;
         void checkEvents();
 
     public:
-        Game(int cellSize, sf::VideoMode videoMode/*, uint32_t windowSettings = sf::Style::Default*/);
+        Game(int cellSize, sf::VideoMode videoMode);
         void run();
-        //void clone(std::vector<std::vector<Cell>> &cloneTo, std::vector<std::vector<Cell>> &cloneFrom);
 };

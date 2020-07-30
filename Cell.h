@@ -11,7 +11,7 @@ class Cell{
 		void resurrect();
 
 	public:
-			bool isAlive;
+		bool isAlive;
 		void livingStatus(int x, int y, std::vector<std::vector<Cell>> &vectOrig, std::vector<std::vector<Cell>> &vectCopy);
 		void draw(sf::RenderTarget& target);
 		Cell(int cellSize, int positionX, int positionY);

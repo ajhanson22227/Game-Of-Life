@@ -1,11 +1,10 @@
 #include "Game.h"
 
 Game::Game(int cellSize, sf::VideoMode videoMode){
-   window.create(videoMode, "Game of Life", sf::Style::Default);
+   window.create(videoMode, "Game of Life", sf::Style::Fullscreen);
    gridWidth = videoMode.width;
    gridHeight = videoMode.height;
-   mcellHeight = cellSize;
-   mCellWidth = cellSize;
+   gridCellSize = cellSize;
 }
 
 void Game::run(){
@@ -14,11 +13,11 @@ void Game::run(){
     std::vector<std::vector<Cell>> gridVectCopy;
 
 
-
+    //Fill A vector with new Cell objects, copy that into a 2nd vector.
     std::vector<Cell> row;
-    for (int x = 0; x < gridWidth; x += mCellWidth){
-        for (int y = 0; y < gridHeight; y += mcellHeight){
-            row.push_back(Cell(mCellWidth, x, y));
+    for (int x = 0; x < gridWidth; x += gridCellSize){
+        for (int y = 0; y < gridHeight; y += gridCellSize){
+            row.push_back(Cell(gridCellSize, x, y));
         }
         gridVect.push_back(row);
         gridVectCopy.push_back(row);
@@ -34,7 +33,7 @@ void Game::run(){
                 gridVect[x][y].draw(window);
             }
         }
-        
+        //copy the 2nd vector into the main one
         gridVect.clear();
         std::vector<Cell> row;
         for (int i = 0; i < gridVectCopy.size(); i++){
@@ -44,9 +43,6 @@ void Game::run(){
             gridVect.push_back(row);
             row.clear();
         }
-
-
-
 
         window.display();
     }
@@ -66,15 +62,3 @@ void Game::checkEvents(){
         }
     }
 }
-
-// void Game::clone(std::vector<std::vector<Cell>> &cloneTo, std::vector<std::vector<Cell>> &cloneFrom){
-//     cloneTo.clear();
-//     std::vector<Cell> row;
-//     for (int i = 0; i < cloneFrom.size(); i++){
-//         for (int j = 0; j < cloneFrom[i].size(); j++){
-//             row.push_back(cloneFrom[i][j]);
-//         }
-//         cloneTo.push_back(row);
-//         row.clear();
-//     }
-// }

@@ -5,3 +5,6 @@ As the game goes on, a cell's state changes if it matches certain criteria.
 * A cell dies if it has fewer than 2 alive neighbors or more than 3 neighbors.
 * A cell remains alive if it has only 2-3 alive neighbors.
 * A cell comes back to life if it has *exactly* 3 alive neighbors.
+
+
+Escape Key or the X button in the top right corner exits the game

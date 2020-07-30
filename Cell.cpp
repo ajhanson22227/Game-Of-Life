@@ -41,12 +41,11 @@ void Cell::livingStatus(int x, int y, std::vector<std::vector<Cell>> &vectOrig, 
             if (j < 0) continue;
             if (j >= vectOrig[i].size()) break;
             if (i == j) continue;
+
             if (vectOrig[i][j].isAlive == true) liveNeighbors++;
-            //std::cout << i << "\t" << j << "\t" << liveNeighbors << "\n";
         }
     }
-    if (this->isAlive == true &&  (liveNeighbors > 4 || liveNeighbors < 3)){
-        //this->kill();
+    if (this->isAlive == true &&  (liveNeighbors > 4 || liveNeighbors < 3)){ //Why??
         vectCopy[x][y].kill();
     }
     else if (this->isAlive == false && liveNeighbors == 3){
