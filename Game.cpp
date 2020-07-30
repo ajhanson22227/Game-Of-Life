@@ -14,20 +14,24 @@ Game::Game(int cellSize, sf::VideoMode videoMode){
 
 void Game::run(){
     window.setFramerateLimit(2);
-    std::vector<Cell> gridVect;
-    for (int y = 0; y < gridHeight; y += mcellHeight){
-        for (int x = 0; x < gridWidth; x += mCellWidth){
-            gridVect.push_back(Cell(mCellWidth, x, y));
+    std::vector<std::vector<Cell>> gridVect;
+    std::vector<Cell> row;
+    for (int x = 0; x < gridWidth; x += mCellWidth){
+        for (int y = 0; y < gridHeight; y += mcellHeight){
+            row.push_back(Cell(mCellWidth, x, y));
         }
+        gridVect.push_back(row);
     }
 
      while (window.isOpen()){
         checkEvents();
         window.clear();
-        for (int i = 0; i < gridVect.size(); i++){
-            gridVect[i].livingStatus();
-            gridVect[i].draw(window);
+        for (int x = 0; x < gridVect.size(); x += 1){
+            for (int y = 0; y < gridVect[x].size(); y += 1){
+                gridVect[x][y].livingStatus();
+                gridVect[x][y].draw(window);
         }
+    }
         window.display();
     }
 }
