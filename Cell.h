@@ -9,10 +9,10 @@ class Cell{
 		void getColor();
 		bool isAlive;
 		void kill();
-		void reborn();
+		void resurrect();
 
 	public:
-		void livingStatus();
+		void livingStatus(int x, int y, std::vector<std::vector<Cell>> &vect);
 		void draw(sf::RenderTarget& target);
 		Cell(int cellSize, int positionX, int positionY);
 
