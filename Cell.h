@@ -6,7 +6,10 @@ class Cell{
 
 	private:
 		sf::RectangleShape cellRect;
+		void getColor();
 		bool isAlive;
+		void kill();
+		void reborn();
 
 	public:
 		void livingStatus();

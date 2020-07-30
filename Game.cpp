@@ -28,7 +28,7 @@ void Game::run(){
         window.clear();
         for (int x = 0; x < gridVect.size(); x += 1){
             for (int y = 0; y < gridVect[x].size(); y += 1){
-                gridVect[x][y].livingStatus();
+                // gridVect[x][y].livingStatus();
                 gridVect[x][y].draw(window);
         }
     }
