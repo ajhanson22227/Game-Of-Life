@@ -8,3 +8,5 @@ As the game goes on, a cell's state changes if it matches certain criteria.
 
 
 Escape Key or the X button in the top right corner exits the game
+
+![Game in Action](game.png)
