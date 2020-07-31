@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game(int cellSize, sf::VideoMode videoMode){
-   window.create(videoMode, "Game of Life", sf::Style::Fullscreen);
+   window.create(videoMode, "Game of Life", sf::Style::Default);
    gridWidth = videoMode.width;
    gridHeight = videoMode.height;
    gridCellSize = cellSize;
